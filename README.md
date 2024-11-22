@@ -23,7 +23,13 @@ Aplikacja służąca do logowania, która zawiera bezpieczną walidację hasła 
 
 3. Zaimportuj bazę danych z pliku `logowanie/db/logowanie.sql`.
 
-4. W katalogu `logowanie/db` zmodyfikuj plik konfiguracyjny:
+4. **Zmiana funkcji w biblotece WebAuthn**
+   - Przejdź do katalogu `logowanie/vendor/lbuchs/webauthn/src/` i zmodyfikuj plik `WebAuthn.php`:
+     - W lini 623 znajdz funkcje `_checkOrigin()`, następnie w 
+        `if ($this->_rpId !== 'localhost' && \parse_url($origin, PHP_URL_SCHEME) !== 'https')`
+      należy zmienić https na http
+
+5. W katalogu `logowanie/db` zmodyfikuj plik konfiguracyjny:
    - Zmień `rpId` na nazwę domeny z pliku `hosts`.
    - Ustaw dane dostępowe do bazy danych.
    - Ustaw wartość `secure` na `false`.
