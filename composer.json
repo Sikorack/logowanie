@@ -1,0 +1,6 @@
+{
+    "require": {
+        "lbuchs/webauthn": "^2.2",
+        "symfony/mailer": "^7.1"
+    }
+}
